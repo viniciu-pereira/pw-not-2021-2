@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" style="border: 1px solid blue;">
+        <p>Paragrafo criado em HTML</p>
+    </div>
+
+
+<script>
+
+    //Capturar a div em uma constante
+    const root = document.getElementById('root')
+
+
+    //criando paragrafo
+    const novoParagrafo = document.createElement('p')
+
+
+    //Colocar o conteudo no paragrafo
+    novoParagrafo.textContent = 'Paragrafo criado com js'
+
+
+    //colocando paragrafo dentro da div root
+    //Anexar filho( append child)
+    root.appendChild(novoParagrafo)
+
+
+    //criando nova div
+    const novaDiv = document.createElement('div')
+
+    //ajustando propriedades da div
+    novaDiv.textContent = "Div criada com js"
+    novaDiv.style.border = '1px dotted green'
+    novaDiv.style.backgroundColor = 'limegreen'
+    novaDiv.id = 'idDaDiv'
+
+
+    //anexando a elemento da pagina
+    document.body.appendChild(novaDiv)
+</script>
+</body>
+</html>

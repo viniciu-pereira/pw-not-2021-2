@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" style="border: 5px solid green">
+
+    </div>
+
+    <!--linkando react -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin>
+    </script>
+<script>
+
+const root = document.getElementById('root')
+
+let props = {
+
+    //props = atributos de um elemento html
+    //Em react sao representaas por meio de um objeto
+    style: {border: '2px solid blue', backgroundColor: 'aliceblue'},
+    id: 'divi', 
+    children: 'Minha primeria div com react'
+}
+
+
+//cria o elemento usando as props,
+const novaDiv = React.createElement('div', props)
+
+//Colocando a nova div dentro da div root
+//ReactDOM.render(novaDiv, root)
+
+let parag = React.createElement('p', {
+
+    children: 'Paragrafo React',
+    style: {color: 'blue'}
+})
+
+    //create element rapidao
+    let divTeste = React.createElement('div', null, 'div de teste')
+
+   const container = React.createElement('div', null, [novaDiv, parag, divTeste])
+
+ReactDOM.render(container, root)
+
+</script>
+</body>
+</html>
