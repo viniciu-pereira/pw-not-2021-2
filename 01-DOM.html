@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="root" style="border: 1px solid red">
+    <p>Parágrafo criado em HTML.</p>
+  </div>
+    
+  <script>
+
+    // Capturar a div "root" em uma constante
+    const root = document.getElementById('root')
+
+    // Criando um novo parágrafo
+    const novoParag = document.createElement('p')
+
+    // Colocar o conteúdo no parágrafo
+    novoParag.textContent = 'Parágrafo criado com JavaScript.'
+
+    // Colocando o novo parágrafo dentro da div "root"
+    root.appendChild(novoParag)
+
+    // Criando uma div nova
+    const novaDiv = document.createElement('div')
+
+    // Ajustando propriedades da div
+    novaDiv.textContent = 'Div criada com JavaScript.'
+    novaDiv.style.border = '3px dotted green'
+    novaDiv.style.backgroundColor = 'limegreen'
+    novaDiv.id = 'minhaDiv'
+
+    // Colocando a nova div diretamente do body do documento
+    document.body.appendChild(novaDiv)
+
+  </script>
+
+</body>
+</html>
