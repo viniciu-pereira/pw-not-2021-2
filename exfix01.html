@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    /*
+      Usando os recursos do React (manupuladores de evento e useState),
+      escreva o nome completo da pessoa (EM MAIÚSCULAS) toda vez que houver 
+      alteração nos campos de nome ou sobrenome.
+
+      1) Criar um useState para armazenar o nome completo.
+      2) Criar uma função para manipular o evento onChange dos inputs. Nessa
+         função, deve-se ler os valores de ambos os inputs (via getElementById ou
+         querySelector), formar o nome completo em maiúsculas e guardá-lo 
+         na variável de estado.
+      3) Usar a variável de estado para atualizar o conteúdo da div do nome completo.
+    */
+
+    //inicio do forulario
+    const CustomForm = () => {
+
+      //use states
+      const [info, setInfo] = React.useState('I am waiting you my baby')
+      const [nome, setNome] = React.useState('')
+      const [sobrenome, setSobrenome] = React.useState('')
+
+      //funcao para evento resact
+      const handleInputChange = event => {
+        if(event.target.id == 'nome') {
+          setInfo(`You changed the name field (${event.target.value})`)
+          setNome(event.target.value.toUpperCase())
+        }
+        else if(event.target.id == 'sobrenome') {
+          setInfo(`You changed the last name field (${event.target.value})`)
+          setSobrenome(event.target.value.toUpperCase())
+        }
+      }
+      return (
+        <form>
+          <div>
+            <label htmlFor="nome">Nome:</label>
+            <input id="nome" value={nome} onchange={handleInputChange}/><br/>
+          </div>
+          <div>
+            <label htmlFor="sobrenome">Sobrenome:</label>
+            <input id="sobrenome" value={sobrenome} onchange={handleInputChange} /><br/>
+          </div>
+          <div id="nomeCompleto">
+            <label htmlFor="nomeCompleto">Nome Completo:</label>
+            <input id="nomeCompleto" value={nome + sobrenome} readonly /><br/>
+            <p>{info}</p>
+          </div>
+        </form>
+      )
+    
+    }
+
+    ReactDOM.render(<CustomForm />, document.getElementById('root'))
+  
+  </script>
+  
+</body>
+</html>
