@@ -32,36 +32,39 @@
     const CustomForm = () => {
 
       //use states
-      const [info, setInfo] = React.useState('I am waiting you my baby')
+      const [info, setInfo] = React.useState('I am waiting you')
       const [nome, setNome] = React.useState('')
       const [sobrenome, setSobrenome] = React.useState('')
+      const [NomeCompleto, setNomeCompleto] = React.useState('')
 
       //funcao para evento resact
       const handleInputChange = event => {
-        if(event.target.id == 'nome') {
+        if(event.target.id === 'nome') {
           setInfo(`You changed the name field (${event.target.value})`)
           setNome(event.target.value.toUpperCase())
+          setNomeCompleto(`${nome} ${sobrenome}`)
         }
-        else if(event.target.id == 'sobrenome') {
-          setInfo(`You changed the last name field (${event.target.value})`)
+        else if(event.target.id === 'sobrenome') {
+          setInfo(`You changed the last name field to (${event.target.value})`)
           setSobrenome(event.target.value.toUpperCase())
+          setNomeCompleto(`${nome} ${sobrenome}`)
         }
       }
       return (
         <form>
           <div>
-            <label htmlFor="nome">Nome:</label>
-            <input id="nome" value={nome} onchange={handleInputChange}/><br/>
+            <label htmlFor="nome">Name:</label>
+            <input id="nome" value={nome} onChange={handleInputChange}/><br/>
           </div>
           <div>
-            <label htmlFor="sobrenome">Sobrenome:</label>
-            <input id="sobrenome" value={sobrenome} onchange={handleInputChange} /><br/>
+            <label htmlFor="sobrenome">Last Name:</label>
+            <input id="sobrenome" value={sobrenome} onChange={handleInputChange} /><br/>
           </div>
           <div id="nomeCompleto">
             <label htmlFor="nomeCompleto">Nome Completo:</label>
-            <input id="nomeCompleto" value={nome + sobrenome} readonly /><br/>
-            <p>{info}</p>
+            <p>{NomeCompleto}</p>
           </div>
+          <p>{info}</p>
         </form>
       )
     
